@@ -1,0 +1,51 @@
+ring R = QQ[a11,b11]; 
+
+for(int i = 1; i<=3; i++)
+{
+	for(int j = 1; j<=3; j++)
+	{
+		ring R_temp = QQ, (`string("a",i,j)`, `string("b",i,j)`), dp; 
+		R = R + R_temp; 
+		kill R_temp; 
+	}
+	kill j; 
+}
+kill i; 
+
+for(int i = 1; i<=3; i++)
+{
+	for(int j = 1; j<=3; j++)
+	{
+		ring R_temp = QQ, (`string("g",i,j)`), dp; 
+		R = R + R_temp; 
+		kill R_temp; 
+	}
+	kill j; 
+}
+kill i; 
+
+setring(R);
+
+matrix P[3][3]; 
+
+for(int i = 1; i<=3; i++)
+{
+	for(int j = 1; j<=3; j++)
+	{
+		P[i,j] = `string("g",i,j)`; 
+	}
+	kill j; 
+}
+kill i; 
+
+matrix Q[3][3]; 
+
+for(int i = 1; i<=3; i++)
+{
+	for(int j = 1; j<=3; j++)
+	{
+		P[i,j] = `string("g",i,j)`; 
+	}
+	kill j; 
+}
+kill i; 
